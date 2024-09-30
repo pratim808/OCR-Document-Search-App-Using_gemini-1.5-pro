@@ -4,7 +4,7 @@ import streamlit as st
 import io
 
 
-GOOGLE_API_KEY = "AIzaSyAesEWBYNPVIw5dde2LiZDXWDDJ8by90XI"
+GOOGLE_API_KEY = "Use_Your_Own_Api_Key"
 genai.configure(api_key=GOOGLE_API_KEY)
 model = genai.GenerativeModel("gemini-1.5-pro")
 
