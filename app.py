@@ -28,26 +28,16 @@ if uploaded_file is not None:
     # Text input for keyword search
     keyword = st.text_input("Enter Keyword to Search")
     # Display highlighted content if a keyword is entered
+  
     if keyword:
-
-        highlighted_content = highlight_content(full_text, keyword)
-        st.subheader("Highlighted Search Results")
-
-      # CSS styles for highlighting
-        st.markdown('''
-        <style>
-        .highlight {
-            background-color: yellow;
-            color: black;
-            padding: 0.2em;
-            border-radius: 4px;
-        }
-        <style>
-        ''', unsafe_allow_html=True)
-
-        # Render the highlighted content with HTML
-        st.markdown(highlighted_content, unsafe_allow_html=True)
-
+        if keyword in full_text:
+            highlighted_text = full_text.replace(
+                keyword, f"<mark style='background-color: yellow; color: black;'>{keyword}</mark>")
+            st.subheader("Highlighted Search Results")
+            st.markdown(highlighted_text, unsafe_allow_html=True)
+        else:
+            st.subheader("Highlighted Search Results")
+            st.write(f"The keyword '{keyword}' was not found in the text.")
     else:
         st.subheader("Highlighted Search Results")
         st.write("No keyword entered for highlighting.")
